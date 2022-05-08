@@ -5,17 +5,18 @@ import com.example.demo.entity.Car;
 import com.example.demo.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
-@Controller
+@RestController
 @RequiredArgsConstructor
 @RequestMapping("/carsharing")
 public class BookingController {
@@ -24,21 +25,26 @@ public class BookingController {
 
     @PostMapping(value = "/bookings")
     public ResponseEntity<BookingDTO> createBooking(@RequestBody BookingDTO booking) {
-        throw new RuntimeException();
+        return ResponseEntity.ok(service.createBooking(booking));
     }
 
     @GetMapping(value = "/bookings/{clientID}")
-    public ResponseEntity<BookingDTO> getBooking(@PathVariable String clientID) {
-        throw new RuntimeException();
+    public ResponseEntity<List<BookingDTO>> getBooking(@PathVariable String name) {
+        return ResponseEntity.ok(service.getBookings(name));
     }
 
-    @GetMapping(value = "/cars")
-    public ResponseEntity<List<Car>> getAllCars() {
-        throw new RuntimeException();
+    @GetMapping(value = "/bookings")
+    public ResponseEntity<List<BookingDTO>> getAllBookings() {
+        return ResponseEntity.ok(service.getBookings());
     }
 
-    @GetMapping(value = "/cars/{modelName}")
-    public ResponseEntity<List<Car>> getDefinedCars(@PathVariable String modelName) {
-        throw new RuntimeException();
+    @DeleteMapping
+    public ResponseEntity<BookingDTO> deleteBooking(@RequestBody BookingDTO booking){
+        return ResponseEntity.ok(service.deleteBooking(booking));
+    }
+
+    @PatchMapping
+    public ResponseEntity<BookingDTO> updateBooking(@RequestBody BookingDTO booking){
+        return ResponseEntity.ok(service.updateBooking(booking));
     }
 }

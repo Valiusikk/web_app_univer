@@ -7,28 +7,43 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import javax.validation.constraints.Email;
+import java.util.List;
+
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("/carsharing")
 public class ClientController {
 
     private ClientService service;
 
-    @PostMapping
-    public ResponseEntity<ClientDTO> createClient(){
-        throw new RuntimeException();
+
+    @PatchMapping(value = "/clients/{email}")
+    public ResponseEntity<ClientDTO> updateClient(@RequestBody ClientDTO dto, @Email @PathVariable String email){
+        return ResponseEntity.ok(service.updateClient(email,dto));
     }
 
-    @PatchMapping
-    public ResponseEntity<ClientDTO> updateClient(){
-        throw new RuntimeException();
+    @DeleteMapping(value = "/clients/{email}")
+    public ResponseEntity<ClientDTO> deleteClient(@Email @PathVariable String email){
+        return ResponseEntity.ok(service.deleteClient(email));
     }
 
-    @DeleteMapping
-    public ResponseEntity<ClientDTO> deleteClient(){
-        throw new RuntimeException();
+    @GetMapping(value = "/clients/{email}")
+    public ResponseEntity<ClientDTO> getClient(@Email @PathVariable String email){
+        return ResponseEntity.ok(service.getClient(email));
+    }
+
+    @GetMapping(value = "/clients")
+    public ResponseEntity<List<ClientDTO>> getClients(){
+        return ResponseEntity.ok(service.getClients());
     }
 
 }
