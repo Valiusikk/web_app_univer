@@ -68,9 +68,8 @@ public class Client implements UserDetails {
     @JoinColumn(name = "location_id")
     private Location locationId;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role")
-    private Role role;
+    @Column(name = "role_id")
+    private String role;
 
     @Column(name = "password")
     @NotNull(message = "Client's password must not be null")

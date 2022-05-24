@@ -83,7 +83,7 @@ public class ClientServiceImpl implements ClientService {
         final Client client = new Client();
         client.setEmail(request.getEmail());
         client.setConfidenceFactor(1);
-        client.setRole(Role.USER_ROLE);
+        client.setRole("User");
         client.setName(request.getName());
         client.setSurname(request.getSurname());
         client.setPhoneNumber(request.getPhoneNumber());

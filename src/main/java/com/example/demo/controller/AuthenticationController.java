@@ -1,14 +1,15 @@
 package com.example.demo.controller;
 
+import com.example.demo.dto.BookingDTO;
 import com.example.demo.dto.ClientDTO;
 import com.example.demo.dto.RegistrationRequest;
+import com.example.demo.service.BookingService;
 import com.example.demo.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 @RequiredArgsConstructor
@@ -16,19 +17,20 @@ public class AuthenticationController {
 
     private final ClientService service;
 
-    @GetMapping("/login")
-    public String login(){
-        return "login";
+    private final BookingService bookingService;
+
+
+    @PostMapping("/register")
+    public String register(@ModelAttribute RegistrationRequest request){
+        service.register(request);
+        return "redirect:/index";
     }
 
-    @GetMapping("/register")
-    public String register(){
-        return "register";
+    @PostMapping(value = "/bookings")
+    public String createBooking(@ModelAttribute("booking") BookingDTO booking) {
+        bookingService.createBooking(booking);
+        return "redirect:/index";
     }
 
-    @PostMapping("/registration")
-    public ResponseEntity<ClientDTO> register(@RequestBody RegistrationRequest request){
-        return ResponseEntity.ok(service.register(request));
-    }
 
 }

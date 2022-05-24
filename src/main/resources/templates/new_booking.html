@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" th:src="@{/css/open-iconic-bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/css/animate.css}">
+
+    <link rel="stylesheet" th:href="@{/css/owl.carousel.min.css}">
+    <link rel="stylesheet" th:href="@{/css/owl.theme.default.min.css}">
+    <link rel="stylesheet" th:href="@{/css/magnific-popup.css}">
+
+    <link rel="stylesheet" th:href="@{/css/aos.css}">
+
+    <link rel="stylesheet" th:href="@{/css/ionicons.min.css}">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap-datepicker.css}">
+    <link rel="stylesheet" th:href="@{/css/jquery.timepicker.css}">
+
+
+    <link rel="stylesheet" th:href="@{/css/flaticon.css}">
+    <link rel="stylesheet" th:href="@{/css/icomoon.css}">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body style="padding-top: 300px; background-color:#f8f9fa;">
+
+<section class="ftco-section ftco-no-pt bg-light" >
+    <div class="container">
+        <div class="row no-gutters">
+            <div class="col-md-12	featured-top">
+                <div class="row no-gutters">
+                    <div class="col-md-4 d-flex align-items-center">
+                        <form class="request-form ftco-animate bg-primary" th:action="@{/bookings}" method="post" th:object="${BookingDTO}">
+                            <fieldset>
+                            <h2>Make your trip</h2>
+                            <div class="form-group">
+                                <label for="pickupLocation" class="label">Pick-up location</label>
+                                <input type="text" name="pickupLocation" id="pickupLocation" class="form-control" placeholder="City, Airport, Station, etc">
+                            </div>
+                            <div class="form-group">
+                                <label for="dropLocation" class="label">Drop-off location</label>
+                                <input type="text" name="dropLocation" id="dropLocation" class="form-control" placeholder="City, Airport, Station, etc">
+                            </div>
+
+                                <div class="form-group">
+                                    <label for="amount" class="label">Price</label>
+                                    <input type="number" name="amount" id="amount" class="form-control" placeholder="Price">
+                                </div>
+                            <div class="d-flex">
+                                <div class="form-group mr-2">
+                                    <label for="startDateTime" class="label">Pick-up date</label>
+                                    <input type="date"  name="startDateTime" class="form-control" id="startDateTime" placeholder="Date">
+                                </div>
+                                <div class="form-group ml-2">
+                                    <label for="endDateTime" class="label">Drop-off date</label>
+                                    <input type="date" name="endDateTime" class="form-control" id="endDateTime" placeholder="Date">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Rent A Car Now" class="btn btn-secondary py-3 px-4">
+                            </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                    <div class="col-md-8 d-flex align-items-center">
+                        <div class="services-wrap rounded-right w-100">
+                            <h3 class="heading-section mb-4">Better Way to Rent Your Perfect Cars</h3>
+                            <div class="row d-flex mb-4">
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">Choose Your Pickup Location</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-handshake"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">Select the Best Deal</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 d-flex align-self-stretch ftco-animate">
+                                    <div class="services w-100 text-center">
+                                        <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-rent"></span></div>
+                                        <div class="text w-100">
+                                            <h3 class="heading mb-2">Reserve Your Rental Car</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p><a href="#" class="btn btn-primary py-3 px-4">Reserve Your Perfect Car</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript" th:src="@{/js/jquery.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery-migrate-3.0.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/popper.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.easing.1.3.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.waypoints.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.stellar.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/owl.carousel.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.magnific-popup.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/aos.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.animateNumber.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/bootstrap-datepicker.js}"></script>
+<script type="text/javascript" th:src="@{/js/jquery.timepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/scrollax.min.js}"></script>
+<script type="text/javascript" th:src="@{/js/google-map.js}"></script>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+</body>
+</html>

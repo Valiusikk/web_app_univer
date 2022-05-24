@@ -1,63 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th = "http://thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Please sign up</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet"
+          crossorigin="anonymous" />
 </head>
 <body>
 <div class="container">
-    <div class="row centered-form">
-        <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title">Please sign up</h3>
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="first_name" id="first_name" class="form-control input-sm" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="text" name="last_name" id="last_name" class="form-control input-sm" placeholder="Last Name">
-                                </div>
-                            </div>
-                        </div>
+    <form class="form-signin"  th:action="@{/register}" method="post" th:object = "${RegistrationRequest}">
+        <fieldset>
+            <h2 class="form-signin-heading">Please sign up</h2>
+            <p>
+                <label for="name" class="sr-only">Username</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="First Name" required autofocus>
+            </p>
 
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address">
-                        </div>
+            <p>
+                <label for="surname" class="sr-only">Username</label>
+                <input type="text" id="surname" name="surname" class="form-control" placeholder="Last Name" required autofocus>
+            </p>
 
-                        <div class="form-group">
-                            <input type="email" name="email" id="phone" class="form-control input-sm" placeholder="Phone number">
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="col-xs-6 col-sm-6 col-md-6">
-                                <div class="form-group">
-                                    <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password">
-                                </div>
-                            </div>
-                        </div>
+            <p>
+                <label for="password" class="sr-only">Password</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
+            </p>
 
-                        <input type="submit" value="Register" class="btn btn-info btn-block">
+            <p>
+                <label for="email" class="sr-only">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+            </p>
 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+            <p>
+                <label for="phoneNumber" class="sr-only">Password</label>
+                <input type="phoneNumber" id="phoneNumber" name="phoneNumber" class="form-control" placeholder="Phone Number" required>
+            </p>
+
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+        </fieldset>
+    </form>
 </div>
 </body>
 </html>

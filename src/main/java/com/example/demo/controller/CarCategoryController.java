@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.CarCategoryDTO;
-import com.example.demo.entity.Car;
-import com.example.demo.entity.CarCategory;
 import com.example.demo.service.CarCategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

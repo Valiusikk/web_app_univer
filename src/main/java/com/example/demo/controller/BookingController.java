@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
 import com.example.demo.dto.BookingDTO;
-import com.example.demo.entity.Car;
 import com.example.demo.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,11 +22,6 @@ import java.util.List;
 public class BookingController {
 
     private BookingService service;
-
-    @PostMapping(value = "/bookings")
-    public ResponseEntity<BookingDTO> createBooking(@RequestBody BookingDTO booking) {
-        return ResponseEntity.ok(service.createBooking(booking));
-    }
 
     @GetMapping(value = "/bookings/{clientID}")
     public ResponseEntity<List<BookingDTO>> getBooking(@PathVariable String name) {

@@ -45,8 +45,7 @@ public class ClientDTO {
     private int confidenceFactor;
 
 
-    @Enumerated
-    private Role role;
+    private String role;
 
     @NotNull(message = "Client's password must not be null")
     @NotBlank(message = "Client's password must be a non blank string")

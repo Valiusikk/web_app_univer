@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.UUID;
 
 @Setter
 @Getter
@@ -24,7 +25,7 @@ import java.util.Set;
 public class Booking {
     @Id
     @Column(name = "booking_id")
-    private String bookingId;
+    private UUID bookingId;
 
     @Column(name = "booking_status")
     private String bookingStatus;
@@ -51,10 +52,10 @@ public class Booking {
     private Set<Discount> discounts;
 
     @Column(name = "start_date_time")
-    private LocalDateTime startDateTime;
+    private LocalDate startDateTime;
 
     @Column(name = "end_date_time")
-    private LocalDateTime endDateTime;
+    private LocalDate endDateTime;
 
     @OneToOne(targetEntity = Insurance.class)
     @JoinColumn(name = "insurance_code")

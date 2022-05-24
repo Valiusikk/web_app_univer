@@ -8,6 +8,5 @@ create table client(
     password VARCHAR2(64) UNIQUE NOT NULL,
     location_id VARCHAR2(36),
     role_id VARCHAR2(36),
-    FOREIGN KEY (role_id) REFERENCES roles(role_id),
     FOREIGN KEY (location_id) REFERENCES location(location_id)
 );
